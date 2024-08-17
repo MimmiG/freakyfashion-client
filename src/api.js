@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'https://freakyfashion-client-grhpc6cgb4cwdpf8.swedencentral-01.azurewebsites.net/'; // Update this to your backend API URL
+// Set this to your backend API URL
+const API_URL = 'https://freakyfashion-api-hwhwa3bvdhkceebg.swedencentral-01.azurewebsites.net';
 
 export const fetchProducts = () => axios.get(`${API_URL}/products`);
 export const fetchProductById = (id) => axios.get(`${API_URL}/products/${id}`);
