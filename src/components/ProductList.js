@@ -10,7 +10,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h2>Product List</h2>
       <div className="row">
         {products.map(product => (
@@ -19,8 +19,8 @@ const ProductList = () => {
               <img src={product.imageUrl} className="card-img-top" alt={product.name} />
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
-                <p className="card-text">${product.price}</p>
-                <Link to={`/products/${product.id}`} className="btn btn-primary">View Details</Link>
+                <p className="card-text">${product.price.toFixed(2)}</p>
+                <Link to={`/products/${product.id}`} className="btn btn-primary btn-block">View Details</Link>
               </div>
             </div>
           </div>

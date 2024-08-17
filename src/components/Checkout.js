@@ -10,9 +10,11 @@ const Checkout = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Checkout</h2>
-      <button className="btn btn-primary" onClick={handleCheckout}>Place Order</button>
+      <button className="btn btn-primary btn-lg btn-block" onClick={handleCheckout}>
+        Place Order
+      </button>
     </div>
   );
 }

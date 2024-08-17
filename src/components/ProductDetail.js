@@ -13,11 +13,15 @@ const ProductDetail = () => {
   if (!product) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h2>{product.name}</h2>
-      <img src={product.imageUrl} alt={product.name} className="img-fluid" />
-      <p>{product.description}</p>
-      <p>${product.price}</p>
+    <div className="container">
+      <div className="card">
+        <img src={product.imageUrl} alt={product.name} className="card-img-top img-fluid" />
+        <div className="card-body">
+          <h2>{product.name}</h2>
+          <p>{product.description}</p>
+          <p><strong>Price:</strong> ${product.price.toFixed(2)}</p>
+        </div>
+      </div>
     </div>
   );
 }
