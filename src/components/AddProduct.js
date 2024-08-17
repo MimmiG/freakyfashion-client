@@ -4,11 +4,28 @@ import { addProduct } from '../api';
 
 const AddProduct = () => {
   const [product, setProduct] = useState({ name: '', price: '', description: '', imageUrl: '' });
+  const [loading, setLoading] = useState(false); // Loading state
+  const [error, setError] = useState(null); // Error state
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addProduct(product).then(() => navigate('/products'));
+    setError(null); // Clear any previous errors
+
+    // Basic validation: Ensure price is a positive number
+    if (product.price <= 0) {
+      setError("Price must be a positive number");
+      return;
+    }
+
+    setLoading(true);
+    addProduct(product)
+      .then(() => navigate('/products'))
+      .catch((err) => {
+        console.error("Error adding product:", err);
+        setError("Failed to add product. Please try again.");
+      })
+      .finally(() => setLoading(false));  // Always reset loading state
   };
 
   return (
@@ -54,7 +71,12 @@ const AddProduct = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">Add Product</button>
+        
+        {error && <div className="alert alert-danger">{error}</div>} {/* Display error message */}
+        
+        <button type="submit" className="btn btn-primary" disabled={loading}>
+          {loading ? 'Adding...' : 'Add Product'}
+        </button>
       </form>
     </div>
   );
