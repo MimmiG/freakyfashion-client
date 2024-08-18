@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Updated backend API URL with correct routing
-const API_URL = 'https://freakyfashion-api-hwhwa3bvdhkceebg.swedencentral-01.azurewebsites.net/api';
+const API_URL = 'https://freakyfashion-api-hwhwa3bvdkhecebg.swedencentral-01.azurewebsites.net/api';
 
 // Product API calls
 export const fetchProducts = () => axios.get(`${API_URL}/products`);
